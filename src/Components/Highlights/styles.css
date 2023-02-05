@@ -13,16 +13,21 @@
 .input-section {
     display: flex;
     justify-content: center;
-    margin: 2em;
+    margin: 1em;
+}
+
+.header-section {
+    text-align: center;
+    margin-top: 1em !important;
 }
 
 .highlight {
-    width: 600px;
+    width: 560px;
 }
 
 .left-arrow,
 .right-arrow {
-    margin-top: 13rem;
+    margin-top: 10rem;
 }
 
 .left-arrow-responsive,
@@ -37,7 +42,7 @@
     }
 
     .highlight {
-        width: 560px;
+        width: 540px;
     }
 
     .details-section {
@@ -77,30 +82,3 @@
     }
 
 }
-
-/* @media screen and (max-width: 768px) {
-    .highlight-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .highlight {
-        width: 500px;
-    }
-
-    .A {
-        order: 1;
-        width: -moz-min-content;
-        width: min-content;
-    }
-
-    .B {
-        order: 3;
-    }
-
-    .C {
-        order: 2;
-        width: -moz-min-content;
-        width: min-content;
-    }
-} */

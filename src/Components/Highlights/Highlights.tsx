@@ -9,6 +9,7 @@ import TextField from '@mui/material/TextField';
 import SportsIcon from '@mui/icons-material/Sports';
 import './styles.css';
 import { getUniqueTeamsArray } from '../../Utils/uniqueTeamsArray';
+import { Typography } from '@mui/material';
 
 const Highlights = () => {
 
@@ -16,7 +17,7 @@ const Highlights = () => {
     const [inputTeam, setInputTeam] = useState<string>('')
     const [selectedTeam, setSelectedTeam] = useState<string>('')
     const [currentVideo, setCurrentVideo] = useState(0);
-    
+
     const memoizedHighlights = useMemo(() => {
         if (!selectedTeam) {
             return highlights;
@@ -55,6 +56,10 @@ const Highlights = () => {
     return (
         <> {
             memoizedHighlights.length > 0 && <>
+                <Typography className='header-section' variant="subtitle1" gutterBottom>
+                    You can enjoy all the recent soccer higlights all over the world. <br />
+                    If you want you can search your favorite team to see recent games .
+                </Typography>
                 <div className='input-section'>
                     <Autocomplete
                         onInputChange={handleInputChange}

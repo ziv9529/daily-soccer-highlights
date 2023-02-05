@@ -12,9 +12,9 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
-
-const pages = ['Highlights', 'About'];
-const settings = ['Linkedin', 'My Portfolio'];
+import { Link } from "react-router-dom";
+import { routingConfiguration } from '../AppRoutes/AppRoutes';
+import "./navbar.css"
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -87,9 +87,11 @@ function Navbar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {routingConfiguration.map((route) => (
+                <MenuItem key={route.key} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">
+                    <Link className='navLink' to={route.path}>{route.label}</Link>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -97,7 +99,7 @@ function Navbar() {
           <SportsSoccerIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
-            noWrap
+            noWrap={false}
             component="a"
             href=""
             sx={{
@@ -114,13 +116,13 @@ function Navbar() {
             By Ziv Ashkenazi
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {routingConfiguration.map((route) => (
               <Button
-                key={page}
+                key={route.key}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link className='navLink' to={route.path}>{route.label}</Link>
               </Button>
             ))}
           </Box>
@@ -147,11 +149,16 @@ function Navbar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem key={"linkedIn"} onClick={handleCloseUserMenu}>
+                <Typography textAlign="center">
+                  <Button variant="text" href={'https://www.linkedin.com/in/ziv-ashkenazi/'} target={'_blank'} >LinkedIn</Button>
+                </Typography>
+              </MenuItem>
+              <MenuItem key={"portfolio"} onClick={handleCloseUserMenu}>
+                <Typography textAlign="center">
+                  <Button variant="text" href='https://ziv9529.github.io/' target={'_blank'}>My Portfolio</Button>
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
