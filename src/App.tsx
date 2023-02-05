@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
+import Highlights from './Components/Highlights/Highlights';
+import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   return (
     <div className="App">
-      <h1>First Line!</h1>
+      <Navbar />
+      <Highlights />
     </div>
   );
 }
